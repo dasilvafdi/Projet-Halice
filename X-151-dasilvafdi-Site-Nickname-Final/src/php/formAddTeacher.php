@@ -20,6 +20,7 @@ $varNName = $_POST['nickname'];
 $varOrigin = $_POST['origin'];
 $varGender = $_POST['gender'];
 $varSection = $_POST['section'];
+$varLogin = $_POST['login'];
 
 // Photo value detector
 if(!empty($_POST['photo']))
@@ -35,8 +36,8 @@ else
 // Convert value
 $idSection = $db -> getSection($varSection);
 
-// Creat new entry
-$db -> getAddTeacher($varLName, $varFName, $varGender, $varNName, $varOrigin, $idSection, $varPhoto);
+// Create new entry
+$db -> getAddTeacher($varLName, $varFName, $varGender, $varNName, $varOrigin, $idSection, $varPhoto, $varLogin);
 
 ?>
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 18 Mai 2016 à 11:24
+-- Généré le :  Ven 17 Juin 2016 à 16:04
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.6.4
 
@@ -58,22 +58,23 @@ CREATE TABLE IF NOT EXISTS `t_teacher` (
   `teaGender` varchar(1) NOT NULL,
   `teaNickname` varchar(60) NOT NULL,
   `teaOrigin` varchar(30) NOT NULL,
-  `teaImage` int(100) NOT NULL,
-  `fkSection` int(20) NOT NULL,
+  `teaImage` varchar(500) DEFAULT NULL,
+  `fkSection` int(20) DEFAULT NULL,
   `teaIsDeleted` tinyint(1) NOT NULL,
   `teaModified` varchar(30) NOT NULL,
   PRIMARY KEY (`idTeacher`),
   KEY `fkSection` (`fkSection`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `t_teacher`
 --
 
 INSERT INTO `t_teacher` (`idTeacher`, `teaLastName`, `teaFirstName`, `teaGender`, `teaNickname`, `teaOrigin`, `teaImage`, `fkSection`, `teaIsDeleted`, `teaModified`) VALUES
-(2, 'Hardegger', 'Cindy', 'W', 'Hermione', 'Ecole d''ingénieur', 1, 1, 0, 'diogo'),
-(3, 'Gruaz', 'Gilbert', 'M', 'GGZ', 'Pseudonyme ETML', 0, 1, 0, 'zip'),
-(5, 'Gruaz', 'Gilbert', 'M', 'GGZ', 'Pseudonyme ETML', 0, 1, 1, 'diogo');
+(2, 'Hardegger', 'Cindy', 'W', 'Hermione', 'Ecole d''ingénieur', '1', 1, 0, 'diogo'),
+(3, 'Gruaz', 'Gilbert', 'M', 'GGZ', 'Pseudonyme ETML', '0', 1, 0, 'zip'),
+(4, 'Degraz', 'Jean-Luc', 'M', 'Big Brother', 'Impero', '0', 3, 0, 'admin'),
+(6, 'Stuki', 'Isabelle', 'W', 'Mme.Cupcakes', 'Patisserie', '0', 1, 0, 'admin');
 
 -- --------------------------------------------------------
 

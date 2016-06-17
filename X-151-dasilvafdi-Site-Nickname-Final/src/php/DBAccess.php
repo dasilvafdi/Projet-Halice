@@ -8,8 +8,8 @@ class DBAccess {
 
 
     // DB information
-    const LOGIN = 'dbLoginUser';
-    const PWD = '.Etml-';
+    const LOGIN = 'root';
+    const PWD = '';
     const DB_NAME = 'db_nickname';
     const HOST = 'localhost';
 
@@ -82,7 +82,7 @@ class DBAccess {
     {
 
         // sql request
-        $sql = "SELECT idTeacher, teaLastName, teaFirstName, teaNickname, secName  FROM t_teacher INNER JOIN t_section ON fkSection = idSection";
+        $sql = "SELECT idTeacher, teaLastName, teaFirstName, teaNickname, secName, teaIsDeleted  FROM t_teacher INNER JOIN t_section ON fkSection = idSection";
 
         // Execute request
         return $this->executeSqlRequest($sql);
@@ -125,7 +125,7 @@ class DBAccess {
 
     /**
      * Name : getDeleteTeacher
-     * Summary : Display the teacher name by ID
+     * Summary : Change the value teaIsDeleted to 1
      * Param : $id = teacher id
      * Return : $sql = request delete one teacher
      */
@@ -133,7 +133,7 @@ class DBAccess {
     {
 
         // sql request
-        $sql = "DELETE FROM t_teacher WHERE idTeacher = $id";
+        $sql = "UPDATE db_nickname.t_teacher SET teaIsDeleted = 1 WHERE idTeacher = '$id'";
 
         // Execute request
         return $this->executeSqlRequest($sql);
@@ -163,13 +163,13 @@ class DBAccess {
      * Param : Last Name, First Name, Gender, Nickname, Nickname origin, Section id, Photo number
      * Return : $sql = Request insert into
      */
-    public function getAddTeacher($extLName, $extFName, $extGender, $extNName, $extOrigin, $idSection, $extPhoto)
+    public function getAddTeacher($extLName, $extFName, $extGender, $extNName, $extOrigin, $idSection, $extPhoto, $extlogin)
     {
         // Accept slashes
         $origin =addslashes($extOrigin);
 
         // sql request
-        $sql = "INSERT INTO db_nickname.t_teacher (idTeacher, teaLastName, teaFirstName, teaGender, teaNickname, teaOrigin, teaImage, fkSection) VALUES (NULL, '$extLName', '$extFName', '$extGender', '$extNName', '$origin',$extPhoto, $idSection)";
+        $sql = "INSERT INTO db_nickname.t_teacher (idTeacher, teaLastName, teaFirstName, teaGender, teaNickname, teaOrigin, teaImage, teaModified, fkSection) VALUES (NULL, '$extLName', '$extFName', '$extGender', '$extNName', '$origin',$extPhoto, '$extlogin', $idSection)";
 
         // Execute request
         return $this->executeSqlRequest($sql);

@@ -34,6 +34,7 @@ include_once ("DBAccess.php");
                 <th>Origine</th>
                 <th>Gender</th>
                 <th>Section</th>
+                <th>Dernière modification</th>
             </tr>
             <!-- Display the db list-->
             <?php
@@ -57,6 +58,7 @@ include_once ("DBAccess.php");
                     <td>$teacher[teaOrigin]</td>
                     <td>$teacher[teaGender]</td>
                     <td>$teacher[secName]</td>
+                    <td>$teacher[teaModified]</td>
                 </tr>";
             ?>
             </tr>

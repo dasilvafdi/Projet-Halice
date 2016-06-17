@@ -59,6 +59,7 @@ else
                             <tr>
                                 <td>
                                     Prénom
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -110,6 +111,7 @@ else
                             <tr>
                                 <td>
                                     Section
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -126,6 +128,21 @@ else
                                         foreach ($allTeachers as $teacher) {
                                             echo "<option>$teacher[secName]</option>";
                                         }
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <!-- Creator login entry -->
+                            <tr>
+                                <td>
+                                    <select name="login" size="1" hidden="true">
+
+                                        <!-- Creator reception-->
+                                        <?php
+
+                                        // Print value
+                                        print "<option>$_SESSION[name]</option>";
                                         ?>
                                     </select>
                                 </td>

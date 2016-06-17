@@ -35,34 +35,38 @@ include_once ("DBAccess.php");
                     // Display  teachers values
                     foreach ($allTeachers as $teacher)
                     {
-                        if( isset($_SESSION['name']))
+                        // Display teacher
+                        if( $teacher['teaIsDeleted'] == 0)
                         {
-                            echo "
-                        <tr>
-                            <td>$teacher[teaLastName]</td>
-                            <td>$teacher[teaFirstName]</td>
-                            <td>$teacher[teaNickname]</td>
-                            <td>$teacher[secName]</td>
-                            <th>
-                                <a href=\"detail.php?id=$teacher[idTeacher]\">D</a>
-                                <a href=\"editTeacher.php?id=$teacher[idTeacher]\">A</a>
-                                <a href=\"deleteTeacher.php?id=$teacher[idTeacher]\">E</a>
-                            </th>
-                        </tr>";
-                        }
-                        else
-                        {
-                            echo "
-                        <tr>
-                            <td>$teacher[teaLastName]</td>
-                            <td>$teacher[teaFirstName]</td>
-                            <td>$teacher[teaNickname]</td>
-                            <td>$teacher[secName]</td>
-                            <th>
-                                <a href=\"detail.php?id=$teacher[idTeacher]\">D</a>
-                            </th>
-                        </tr>";
-                        }
+                            if( isset($_SESSION['name']))
+                            {
+                                echo "
+                                <tr>
+                                    <td>$teacher[teaLastName]</td>
+                                    <td>$teacher[teaFirstName]</td>
+                                    <td>$teacher[teaNickname]</td>
+                                    <td>$teacher[secName]</td>
+                                    <th>
+                                        <a href=\"detail.php?id=$teacher[idTeacher]\">D</a>
+                                        <a href=\"editTeacher.php?id=$teacher[idTeacher]\">M</a>
+                                        <a href=\"deleteTeacher.php?id=$teacher[idTeacher]\">E</a>
+                                    </th>
+                                </tr>";
+                            }
+                            else
+                            {
+                                echo "
+                            <tr>
+                                <td>$teacher[teaLastName]</td>
+                                <td>$teacher[teaFirstName]</td>
+                                <td>$teacher[teaNickname]</td>
+                                <td>$teacher[secName]</td>
+                                <th>
+                                    <a href=\"detail.php?id=$teacher[idTeacher]\">D</a>
+                                </th>
+                            </tr>";
+                            }// End if isset
+                        }// End if
                     }
                     ?>
                 </tr>
